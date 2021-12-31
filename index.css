@@ -1,0 +1,727 @@
+html,body{
+	margin: 0rem;
+	padding: 0rem;
+	height: 100%;
+	width: 100%;
+}
+
+input:focus-visible{
+	outline: 0rem;
+}
+
+.navbar{
+	width: 100%;
+	height: 6%;
+	/* border-bottom: 1px solid gray; */
+	box-sizing: border-box;
+	box-shadow: 0rem .5rem .5rem #e3e3e3;
+	position: relative;
+}
+
+.main{
+	height: 94%;
+	width: 100%;
+	position: relative;
+}
+
+.navbar h2{
+	position: absolute;
+	left: 8rem;
+	margin: 0rem;
+	padding: 0rem;
+	top: 50%;
+	transform: translateY(-50%);
+	font-style: italic;
+	letter-spacing: 0.0625rem;
+	text-decoration: underline;
+	color: #353535;
+	cursor: pointer;
+	transition: color .5s;
+}
+
+.navbar h2:hover{
+	color: orangered;
+}
+
+.navbar-instructions{
+    margin: 0rem;
+    position: absolute;
+    right: 4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color .2s;
+	cursor: pointer;
+}
+
+.navbar-instructions:hover{
+	color: orangered;
+}
+
+.panel{
+	height: 100%;
+	/* background-color: red; */
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 20%;
+	/* border-right: 0.25rem solid; */
+}
+
+.board{
+	/* background-color: blue; */
+	height: 94%;
+	width: 74.5%;
+	position: absolute;
+	top: 3%;
+	left: 20%;
+	border: 0.25rem dotted;
+	box-sizing: border-box;
+}
+
+.controls{
+    position: absolute;
+    height: 100%;
+    width: 5%;
+    /* border: 1px solid; */
+    top: 0%;
+    left: 95%;
+    /* background: red; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.controls button{
+	width: 80%;
+	height: 23%;
+	background-color: white;
+	border: 2px solid;
+	border-radius: 1rem;
+	font-size: 1.5rem;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.controls button:hover{
+	background-color: black;
+	color: white;
+}
+
+#canvas{
+	height: 100%;
+	width: 100%;
+	/* background-color: black; */
+}
+
+.vertex{
+	/* border: 1px solid; */
+	position: absolute;
+	height: 40%;
+	width: 90%;
+	left: 5%;
+	top: 3%;
+	box-shadow: 0rem 0rem .5rem gray;
+}
+
+.vertex-form{
+	position: absolute;
+	height: 25%;
+	width: 95%;
+	left: 2.5%;
+	top: 1%;
+	/* border: 1px solid; */
+}
+
+.vertex-list-unused{
+	position: absolute;
+	height: 70%;
+	width: 48%;
+	/* border: 1px solid; */
+	top: 25%;
+	left: 2.5%;
+	padding: .25rem;
+	box-sizing: border-box;
+	overflow: auto;
+	border-right: 0.25rem solid;
+}
+.vertex-list-using{
+	position: absolute;
+	height: 70%;
+	width: 44%;
+	/* border: 1px solid; */
+	top: 25%;
+	left: 52%;
+	padding: .25rem;
+	box-sizing: border-box;
+	overflow: auto;
+}
+
+.vertex-list-using::-webkit-scrollbar,
+.vertex-list-unused::-webkit-scrollbar{
+	display: none;
+}
+
+.vertex-item{
+	height: 2rem;
+	width: 2rem;
+	border: 0.175rem solid;
+	border-radius: 50%;
+	line-height: 1.5rem;
+	font-weight: bold;
+	text-align: center;
+	box-sizing: border-box;
+	float: left;
+	margin-left: .25rem;
+	margin-top: .25rem;
+	
+	user-select:none;
+	
+	cursor: pointer;
+	/* transition: color .2s; */
+}
+
+.vertex-item-selected{
+	border-color: red;
+}
+
+/* .vertex-item:hover{
+	color: red;
+}
+ */
+.vertex-new{
+	position: absolute;
+	height: 3rem;
+	width: 6rem;
+	border: .125rem solid;
+	background: white;
+	top: 1rem;
+	left: 13rem;
+	
+	/* transition: all .1s; */
+	cursor: pointer;
+}
+
+.vertex-title{
+	position: absolute;
+	/* border: 1px solid; */
+	margin: 0rem;
+	top: .5rem;
+	left: .75rem;
+	width: 2rem;
+}
+
+.vertex-new:hover{
+	color: white;
+	background-color: black;
+}
+
+.vertex-demo{
+	height: 2.75rem;
+	width: 2.75rem;
+	border: 0.175rem solid;
+	border-radius: 50%;
+	line-height: 2.5rem;
+	font-weight: bold;
+	text-align: center;
+	box-sizing: border-box;
+	position: absolute;
+	top: 1.25rem;
+	left: 9rem;
+}
+
+.vertex-newinfo{
+	position: absolute;
+	width: 4rem;
+	height: 1.5rem;
+	text-align: center;
+	font-size: 1.25rem;
+	border: 0rem;
+	border-bottom: 0.125rem solid;
+	top: 1.5rem;
+	left: 3rem;
+	background-color: #f3f3f3;
+}
+
+.edge{
+	/* border: 1px solid; */
+	position: absolute;
+	height: 52%;
+	width: 90%;
+	left: 5%;
+	top: 45%;
+	box-shadow: 0rem 0rem .5rem gray;	
+}
+
+.edge-form{
+	position: absolute;
+	/* border: 1px solid; */
+	height: 35%;
+	width: 95%;
+	left: 2.5%;
+}
+.edge-list{
+    position: absolute;
+    /* border: 1px solid; */
+    height: 60%;
+    width: 95%;
+    left: 2.5%;
+    top: 38%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+	overflow: auto;
+}
+.edge-list::-webkit-scrollbar{
+	display: none;
+}
+
+.edge-v1{
+    position: absolute;
+    width: 4rem;
+    background: #f3f3f3;
+    border: 0rem;
+    border-bottom: 2px solid;
+    height: 2rem;
+    font-size: 1.25rem;
+    text-align: center;
+    top: 1rem;
+    left: 2rem;
+}
+
+.edge-v2{
+    position: absolute;
+    width: 4rem;
+    background: #f3f3f3;
+    border: 0rem;
+    border-bottom: 2px solid;
+    height: 2rem;
+    font-size: 1.25rem;
+    text-align: center;
+    top: 1rem;
+    left: 15rem;
+}
+
+.edge-dis{
+    position: absolute;
+    width: 3rem;
+    background: #f3f3f3;
+    border: 0rem;
+    border-bottom: 2px solid;
+    height: 1.5rem;
+    font-size: 1.25rem;
+    text-align: center;
+    left: 9rem;
+    top: 2.25rem;
+}
+
+.edge-demo-v1{
+    position: absolute;
+    height: 2.5rem;
+    width: 2.5rem;
+    border: 2px solid;
+    border-radius: 50%;
+    line-height: 2.25rem;
+    text-align: center;
+    font-size: 1.25rem;
+    top: 3.5rem;
+    left: 3rem;
+    box-sizing: border-box;
+}
+
+.edge-demo-v2{
+    position: absolute;
+    height: 2.5rem;
+    width: 2.5rem;
+    border: 2px solid;
+    border-radius: 50%;
+    line-height: 2.25rem;
+    text-align: center;
+    font-size: 1.25rem;
+    box-sizing: border-box;
+    top: 3.5rem;
+    right: 2rem;
+}
+
+.edge-edge{
+    position: absolute;
+    height: .25rem;
+    width: 10.5rem;
+    background: black;
+    top: 4.5rem;
+    left: 5.5rem;
+}
+
+.edge-control{
+    position: absolute;
+    /* border: 1px solid; */
+    width: 90%;
+    bottom: 0rem;
+    left: 5%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.edge-control button{
+    height: 2.5rem;
+    width: 5rem;
+    background: white;
+    cursor: pointer;
+	/* transition: all .1s; */
+}
+.edge-control button:hover{
+	color: white;
+	background-color: black;
+}
+
+.edge-exchange{
+    position: absolute;
+    /* height: 1.5rem; */
+    /* width: 5rem; */
+    background: white;
+    cursor: pointer;
+    top: .5rem;
+    left: 9.5rem;
+    /* transition: all .1s; */
+    /* border: 1px solid; */
+}
+.edge-exchange:hover{
+	color: white;
+	background-color: black;
+}
+
+.edge-title{
+	position:absolute
+}
+
+.edge-item{
+	/* border: 1px solid; */
+	margin: .25rem;
+	height: 3rem;
+	width: 45%;
+	position: relative;
+	box-sizing: border-box;
+	cursor: pointer;
+	transition: background-color .1s;
+}
+
+.edge-item:hover{
+	background-color: #e3e3e3;
+}
+
+.edge-item-v1{
+    border: 2px solid;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.75;
+    box-sizing: border-box;
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+}
+
+.edge-item-v2{
+    border: 2px solid;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.75;
+    box-sizing: border-box;
+    position: absolute;
+    right: .5rem;
+    top: .5rem;
+}
+
+.edge-item-edge{
+    height: .25rem;
+    width: 4.25rem;
+    background: black;
+    position: absolute;
+    left: 2.5rem;
+    top: 1.5rem;
+}
+
+.edge-item-dis{
+    /* height: .25rem; */
+    /* width: 4.25rem; */
+    /* background: black; */
+    position: absolute;
+    left: 4.5rem;
+    top: 0.25rem;
+}
+
+.edge-directed::after{
+	content: '';
+	position: absolute;
+	height: .8rem;
+	width: .6rem;
+	display: block;
+	background-color: black;
+	right: 0rem;
+	top: -.3rem;
+	border-top-right-radius: 50%;
+	border-bottom-right-radius: 50%;
+}
+
+.edge-no-distance{
+	display: none !important;
+}
+
+
+.mask{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top:0%;
+	left: 0%;
+	background-color: #00000030;
+	z-index: 5;
+	display: none;
+}
+
+.settings{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 70%;
+	width: 40%;
+	background-color: white;
+	display: none;
+	transform: translate(-50%,-50%);
+}
+
+.saving{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 50%;
+	width: 40%;
+	transform: translate(-50%,-50%);
+	background-color: white;
+	display: none;
+}
+
+.loading{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 90%;
+	width: 35%;
+	transform: translate(-50%,-50%);
+	background-color: white;
+	display: none;
+}
+
+.cross{
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	/* border: 1px solid; */
+	height: 2rem;
+	width: 2rem;
+	text-align: center;
+	line-height: 2rem;
+	font-size: 1.5rem;
+	cursor: pointer;
+}
+
+.cross:hover{
+	background-color: orangered;
+}
+
+.mask div>button{
+	border: 0.125rem solid;
+	background-color: white;
+	cursor: pointer;
+}
+
+.mask div>button:hover{
+	color: white;
+	background-color: black;
+}
+
+.saving-title{
+    margin: 0rem;
+    position: absolute;
+    left: 3rem;
+    top: 1rem;
+}
+
+.saving-form{
+    /* border: 1px solid; */
+    height: 70%;
+    width: 90%;
+    position: absolute;
+    top: 16%;
+    left: 5%;
+}
+.saving-input{
+    height: 15%;
+    width: 100%;
+    /* border: 1px solid; */
+    display: flex;
+    justify-content: space-around;
+}
+.saving-output{
+    height: 75%;
+    /* border: 1px solid; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+	margin-top: 1rem;
+}
+.saving-output-result{
+    border: 0.125rem dashed;
+    margin: auto;
+    height: 85%;
+    width: 90%;
+	padding: .5rem;
+	box-sizing: border-box;
+	overflow: auto;
+	background-color: #f8f8f8;
+}
+.saving-input input{
+	border: 0rem;
+	text-align: center;
+	border-bottom: 0.125rem solid;
+	font-size: 1.25rem;
+}
+
+.saving-output h3{
+	margin: 0rem;
+	width: 90%;
+}
+
+.saving-submit{
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: 1rem;
+    height: 3rem;
+    width: 10rem;
+}
+
+.loading-title{
+    position: absolute;
+    left: 3rem;
+    top: 1rem;
+    margin: 0rem;
+}
+
+.loading-submit{
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3rem;
+    width: 20rem;
+}
+
+.loading-form{
+    position: absolute;
+    /* border: 1px solid; */
+    height: 80%;
+    width: 90%;
+    left: 5%;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loading-input{
+    /* border: 1px solid; */
+    width: 95%;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+	margin-bottom: 1rem;
+}
+
+.loading-list{
+    border: 0.25rem double;
+    height: 58%;
+    width: 95%;
+	box-sizing: border-box;
+	overflow: auto;
+}
+
+.loading-output{
+    height: 30%;
+    width: 95%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	margin-top: 1rem;
+}
+
+.loading-input input{
+	border: 0rem;
+	text-align: center;
+	border-bottom: 0.125rem solid;
+	font-size: 1.25rem;
+	width: 80%;
+}
+
+.loading-output-result{
+    border: 0.125rem dashed;
+    margin: auto;
+    height: 85%;
+    width: 100%;
+	padding: .5rem;
+	box-sizing: border-box;
+	overflow: auto;
+	background-color: #f8f8f8;
+}
+
+.loading-output h3{
+	width:100%;
+	margin: 0rem;
+}
+
+.loading-item{
+    height: 4rem;
+    border-bottom: 1px solid;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.loading-item:hover{
+	background-color: #f7f7f7;
+}
+
+.loading-item-selected{
+	border-left: .5rem solid dimgray;
+}
+
+.loading-item-boardname{
+    font-size: 1.25rem;
+    font-weight: bold;
+    width: 12rem;
+	overflow: hidden;
+    /* border: 1px solid; */
+}
+
+.loading-item-timestamp{
+    color: gray;
+    font-size: 1.25rem;
+    font-style: italic;
+}
+
+.loading-item-delete{
+	
+}

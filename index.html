@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数据结构绘图板</title>
+		<link rel="stylesheet" href="./index.css">
+	</head>
+	<body>
+		<div class="navbar">
+			<h2 class="navbar-logo">数据结构绘图板</h2>
+			<a href="快捷键.html" target="_blank" class="navbar-instructions">快捷键说明书</a>
+		</div>
+		<div class="main">
+			
+			<div class="mask">
+				
+				<div class="settings">
+					<div class="cross">X</div>
+					<h1>敬请期待</h1>
+					<!-- <button type="button">确定</button> -->
+				</div>
+				
+				<div class="saving">
+					<div class="cross">X</div>
+					<h1 class="saving-title">存档</h1>
+					<div class="saving-form">
+						<div class="saving-input">
+							<input type="text" class="saving-username" placeholder="用户名称">
+							<input type="text" class="saving-boardname" placeholder="作品名称号">
+						</div>
+						<div class="saving-output">
+							<h3>作品导出如下：</h3>
+							<div class="saving-output-result"></div>
+						</div>
+					</div>
+					
+					<button type="button" class="saving-submit">保存至云端</button>
+				</div>
+				
+				<div class="loading">
+					<div class="cross">X</div>
+					<h1 class="loading-title">读档</h1>
+					
+					<div class="loading-form">
+						<div class="loading-input">
+							<input type="text" class="loading-username" placeholder="用户名">
+							<!-- <input type="text" class="loading-boardname" placeholder="作品名"> -->
+							<button type="button" class="loading-search">搜索</button>
+						</div>
+						<div class="loading-list">
+<!-- 							<div class="loading-item loading-item-selected">
+								<div class="loading-item-boardname">最短路径1</div>
+								<div class="loading-item-timestamp">2021-12-29 15:08:22</div>
+								<button class="loading-item-delete">删除</button>
+							</div> -->
+						</div>
+						<div class="loading-output">
+							<h3>获取作品如下：</h3>
+							<div class="loading-output-result"></div>
+						</div>
+					</div>
+					
+					
+					<button type="button" class="loading-submit">确认读档</button>
+				</div>
+				
+			</div>
+			
+			<div class="panel">
+				<div class="vertex">
+					<div class="vertex-form">
+						<input type="number" class="vertex-newinfo" value="1">
+						<div class="vertex-demo">1</div>
+						<button type="button" class="vertex-new">添加顶点</button>
+						<h3 class="vertex-title">顶点</h3>
+					</div>
+					<div class="vertex-list-unused"></div>
+					<div class="vertex-list-using"></div>
+					
+				</div>
+				<div class="edge">
+					<div class="edge-form">
+						<h3 class="edge-title">边</h3>
+						<input type="number" class="edge-v1" value="0" title="快捷键:Q">
+						<input type="number" class="edge-v2" value="0" title="快捷键:W">
+						<input type="number" class="edge-dis"value="1">
+						<div class="edge-demo-v1">0</div>
+						<div class="edge-demo-v2">0</div>
+						<div class="edge-edge edge-directed"></div>
+						<div class="edge-exchange">交换</div>
+						<div class="edge-control">
+							<button type="button" class="edge-new" title="快捷键:X">添加</button>
+							<button type="button" class="edge-direction">有向</button>
+							<button type="button" class="edge-distance">有权</button>
+						</div>
+					</div>
+					<div class="edge-list">
+	<!-- 					<div class="edge-item" id="1-2-5">
+							<div class="edge-item-v1">1</div>
+							<div class="edge-item-v2">2</div>
+							<div class="edge-item-dis edge-no-distance">5</div>
+							<div class="edge-item-edge edge-directed"></div>
+						</div> -->
+					</div>
+				</div>
+			</div>
+			<div class="board">
+				<canvas id="canvas"></canvas>
+			</div>
+			<div class="controls">
+				<button type="button" class="control-reset">重置</button>
+				<button type="button" class="control-save">存档</button>
+				<button type="button" class="control-load">读档</button>
+				<button type="button" class="control-settings">设置</button>
+			</div>
+		</div>
+	</body>
+</html>
+
+<script src="jquery-3.5.1.js"></script>
+<script src="commen.js"></script>
+<script src="Vertex.js"></script>
+<script src="Note.js"></script>
+<script src="Edge.js"></script>
+<script src="index.js"></script>
